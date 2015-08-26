@@ -1,5 +1,8 @@
+# ActiveSupport added because an issue with CircleCI dependency order
 require 'active_support'
 require 'active_support/core_ext'
+
+
 require 'test/unit'
 require 'salesforce'
 
@@ -31,42 +34,6 @@ class SalesforceTest < Test::Unit::TestCase
     assert_raise Databasedotcom::SalesForceError do
       @salesforce.search_contact_by_id(contact.Id)
     end
-  end
-
-end
-
-
-
-if __FILE__ == $0
-
-  if s != nil
-    # search by email
-    email = "rossato.rd.test01@gmail.com"
-    id = nil
-    
-    puts "Searching for contacts with email " + email
-    c = s.search_contact_by_email(email)
-    if c != nil
-       puts "Found: ", c.Name
-       puts c.inspect
-       id = c.Id
-    else
-      puts "Not found."
-    end
-
-    # search by id
-    if id != nil
-      puts "Searching for contacts by Id " + id
-      c = s.search_contact_by_id(id)
-      if c != nil
-        puts "Found: ", c.Name
-      else
-        puts "Not found."
-      end
-    end
-    
-    # sync contact
-    s.sync_contact id, "Thiago", "Rossato", "rossato.rd.test01@gmail.com", "+55 48 88181021", "VP of Engineering"
   end
 
 end
