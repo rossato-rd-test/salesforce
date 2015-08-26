@@ -15,5 +15,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{2.4.8}
   s.summary = %q{Salesforce Contact sync!}
   s.license = 'MIT'
+  
+  s.add_runtime_dependency 'databasedotcom', '>= 0'
 end
 
