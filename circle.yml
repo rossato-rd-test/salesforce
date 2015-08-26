@@ -1,7 +1,8 @@
 machine:
   ruby:
-    version: 2.2.2
+    version: 2.1.1
 
 dependencies:
   pre:
     - gem install databasedotcom
+    
